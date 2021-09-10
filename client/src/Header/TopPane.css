@@ -1,0 +1,8 @@
+.mainHeading {
+  font-size: 75px;
+  line-height: 1.8;
+  text-align: center;
+  margin: 0px;
+  background: linear-gradient(to left top,aqua, 40%, aquamarine);
+  height: 150px;
+}

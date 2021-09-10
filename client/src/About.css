@@ -1,0 +1,12 @@
+.mainAboutBox {
+  margin-top: 80px;
+  margin-bottom: 150px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 3px 3px 10px 3px #111;
+}
+
+.aboutHeading {
+  text-align: center;
+  font-size: 45px;
+}

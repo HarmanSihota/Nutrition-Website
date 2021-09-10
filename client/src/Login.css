@@ -1,0 +1,60 @@
+.loginBox {
+  margin: 100px auto;
+  height: 375px;
+  width: 700px;
+  background-color: white;
+  box-shadow: 3px 3px 10px 3px #111;
+}
+
+p {
+  text-align: center;
+  color: black;
+}
+
+/*
+ * Below text inputs and button are from https://www.w3schools.com/howto/howto_css_stacked_form.asp
+ */
+
+.username {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 40px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.password {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-left: -208px;
+  width: 100%;
+  background-color: rgb(156, 155, 155);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(88, 87, 87);
+}
+
+.errorMsg {
+  color: red;
+}
+
+.registerMsg {
+  color: blue
+}

@@ -1,0 +1,28 @@
+/*
+ * from https://www.w3schools.com/css/css_navbar_horizontal.asp
+ */
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li:hover {
+  background-color: #111;
+}
+
+.log {
+  float: right;
+}
