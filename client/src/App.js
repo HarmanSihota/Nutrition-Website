@@ -18,7 +18,7 @@ function App() {
       <div>
         <Header isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} />
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" render={(props)=> <Home {...props} isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} /> } exact />
           <Route path="/login" render={(props)=> <Login {...props} isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} /> } />
           <Route path="/calorieLog" component={CalorieLog} />
           <Route path="/about" component={About} />

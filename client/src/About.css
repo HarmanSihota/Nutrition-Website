@@ -1,7 +1,9 @@
 .mainAboutBox {
-  margin-top: 80px;
-  margin-bottom: 150px;
-  height: 400px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 450px;
+  width: 900px;
   background-color: white;
   box-shadow: 3px 3px 10px 3px #111;
 }

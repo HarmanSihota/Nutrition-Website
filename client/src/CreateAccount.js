@@ -40,12 +40,13 @@ function CreateAccount() {
 
   return (
     <div className="registerBox">
-      <h1>Registration</h1>
-      <p>Please enter your information below</p>
+      <h1 id="registerMsg">Registration</h1>
+      <p id="registerSubmsg">Please enter your information below</p>
       <form>
         <label>
           <input
-            className="username"
+            id="username"
+            className="formInput"
             type="text"
             name="username" 
             value={username}
@@ -57,7 +58,8 @@ function CreateAccount() {
 
         <label>
           <input 
-            className="password"
+            id="password"
+            className="formInput"
             type="password" 
             name="password"
             value={password}
@@ -69,7 +71,8 @@ function CreateAccount() {
 
         <label>
           <input 
-            className="email"
+            id="email"
+            className="formInput"
             type="text" 
             name="email"
             value={email}
@@ -82,7 +85,7 @@ function CreateAccount() {
         <br />
       </form>
 
-      <button type="submit" onClick={handleSubmit}>Register</button>
+      <button type="submit" onClick={handleSubmit} className="formButton">Register</button>
       <p className="errorMsg">{error}</p>
 
     </div>

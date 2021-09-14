@@ -60,12 +60,13 @@ function Login(props) {
 
   return (
     <div className="loginBox">
-      <h1>Please login below</h1>
+      <h1 id="loginMsg">Please login below</h1>
 
       <form>
         <label>
           <input
-            className="username"
+            id="username"
+            className="formInput"
             type="text"
             name="username" 
             value={username}
@@ -77,7 +78,8 @@ function Login(props) {
 
         <label>
           <input 
-            className="password"
+            id="password"
+            className="formInput"
             type="password" 
             name="password"
             value={password}
@@ -88,7 +90,7 @@ function Login(props) {
         <br />
         <br />
       </form>
-      <button type="submit" onClick={handleSubmit}>Login</button>
+      <button type="submit" onClick={handleSubmit} className="formButton">Login</button>
 
       <p className="errorMsg">{incorrectLogin? incorrectLogin: ""}</p>
 

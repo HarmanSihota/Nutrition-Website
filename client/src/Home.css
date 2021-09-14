@@ -1,16 +1,62 @@
-div {
+/* homeDiv styling from https://css-tricks.com/snippets/css/transparent-background-images/ */
+
+#homeDiv {
+  width: 100%;
+  height: 557px;
+  display: block;
   position: relative;
 }
 
-.hook {
+#homeDiv::after {
+  content: "";
+  background: url("/home/harmansihota/ReactProjects/nutrition-app/client/src/pexels-ella-olsson-1640777.jpg");
+  background-size: cover;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   position: absolute;
-  top: 50px;
-  left: 100px;
-  color: black;
+  z-index: -1;   
+  margin-top: -32px;
 }
 
-.backgroundImg {
-  height: 100%;
-  width: 100%;
-  opacity: 0.2;
+.hook {
+  display: inline-block;
+  position: relative;
+  top: 60px;
+  font-size: 350%;
 }
+
+#topHook {
+  left: 200px;
+}
+
+
+#bottomHook {
+  left: 310px;
+}
+
+.middleHook {
+  font-size: 18px;
+  font-style: italic;
+}
+
+#middleHook1 {
+  position: relative;
+  top: 50px;
+  left: -185px;
+}
+
+#middleHook2 {
+  position: relative;
+  top: 60px;
+  left: -210px;
+}
+
+#middleHook3 {
+  position: relative;
+  top: 70px;
+  left: -390px;
+}  
+

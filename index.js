@@ -57,7 +57,6 @@ app.post("/checkAuth", (req, res) =>{
   jwt.verify(authToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if(err) return res.send("token invalid");
     req.user = user;
-    console.log("jwt check success")
     return res.send("success");
   });
 })
