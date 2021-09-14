@@ -91,7 +91,12 @@ app.post("/register", checkUserDoesNotExist, async (req, res) => {
       console.log(error);
       res.status(500).end();
     }
-  });
+});
+
+app.post("/mealEntry", (req, res) => {
+  //insert meal entry info into users row in database
+})
+
 
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);

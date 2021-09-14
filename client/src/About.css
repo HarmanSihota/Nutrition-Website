@@ -1,4 +1,4 @@
-.mainAboutBox {
+.mainBox {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -8,7 +8,7 @@
   box-shadow: 3px 3px 10px 3px #111;
 }
 
-.aboutHeading {
+#aboutHeading {
   text-align: center;
   font-size: 45px;
 }

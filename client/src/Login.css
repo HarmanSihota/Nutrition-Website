@@ -11,7 +11,7 @@ p {
   color: black;
 }
 
-#loginMsg {
+.boxMsg {
   text-align: center;
 }
 

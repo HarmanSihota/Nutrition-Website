@@ -22,8 +22,8 @@ function About() {
     return <Redirect to={redirect} />
   } 
   return (
-    <div className="mainAboutBox">
-      <h1 className="aboutHeading">About This Site</h1>
+    <div className="mainBox">
+      <h1 id="aboutHeading">About This Site</h1>
     </div>
   );
 }

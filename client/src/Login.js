@@ -60,7 +60,7 @@ function Login(props) {
 
   return (
     <div className="loginBox">
-      <h1 id="loginMsg">Please login below</h1>
+      <h1 className="boxMsg">Please login below</h1>
 
       <form>
         <label>
