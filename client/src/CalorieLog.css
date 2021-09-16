@@ -39,3 +39,18 @@
   left: 265px;
   margin-left: 0;
 }
+
+#mealHistoryMsg {
+  display: block;
+  text-align: center;
+  margin-left: 230px;
+  margin-bottom: 40px;
+}
+
+table, th, td {
+  border: 2px solid black;
+}
+
+table {
+  margin-left: 230px;
+}

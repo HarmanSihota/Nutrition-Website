@@ -16,9 +16,9 @@ function Navbar(props) {
   }
 
   function handleLogoutClick() {
-    localStorage.setItem("jwtToken", null);
+    sessionStorage.setItem("jwtToken", null);
     props.isLoggedIn.func(false)
-    localStorage.setItem("loginStatus", "0");
+    sessionStorage.setItem("loginStatus", "0");
   }
 
   function LoginButton() {
@@ -30,9 +30,9 @@ function Navbar(props) {
   }
   
   function handleLoginClick() {
-    localStorage.setItem("jwtToken", null);
+    sessionStorage.setItem("jwtToken", null);
     props.isLoggedIn.func(false)
-    localStorage.setItem("loginStatus", "0");
+    sessionStorage.setItem("loginStatus", "0");
   }
 
   return (

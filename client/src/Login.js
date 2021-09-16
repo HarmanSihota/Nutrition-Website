@@ -13,12 +13,12 @@ function Login(props) {
 
   async function checkNoToken(isMounted) {
     let response = await axios.post("/checkAuth", {
-      token: localStorage.getItem("jwtToken")
+      token: sessionStorage.getItem("jwtToken")
     });
 
     if(response.data === "success" && isMounted) {
       props.isLoggedIn.func(true);
-      localStorage.setItem("loginStatus", "1");
+      sessionStorage.setItem("loginStatus", "1");
       setRedirect("/");
     }
   }
@@ -44,7 +44,9 @@ function Login(props) {
 
       if(response.data === "incorrect password" || response.data === "invalid username") setIncorrectLogin("invalid username/password");
       else {
-        localStorage.setItem("jwtToken", response.data.accessToken);
+        sessionStorage.setItem("jwtToken", response.data.accessToken);
+        sessionStorage.setItem("username", username)
+        props.user.func(username);
         setRefresh("refresh");
       }
 

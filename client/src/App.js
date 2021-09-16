@@ -10,8 +10,9 @@ import Footer from "./Footer"
 import "./App.css";
 
 function App() {
-  const storedLoginStatus = Number(localStorage.getItem("loginStatus"));
+  const storedLoginStatus = Number(sessionStorage.getItem("loginStatus"));
   const [ isLoggedIn, setIsLoggedIn ] = useState(storedLoginStatus);
+  const [username, setUsername ] = useState(sessionStorage.getItem("username"));
 
   return (
     <Router>
@@ -19,8 +20,8 @@ function App() {
         <Header isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} />
         <Switch>
           <Route path="/" render={(props)=> <Home {...props} isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} /> } exact />
-          <Route path="/login" render={(props)=> <Login {...props} isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} /> } />
-          <Route path="/calorieLog" component={CalorieLog} />
+          <Route path="/login" render={(props)=> <Login {...props} isLoggedIn={{var: isLoggedIn, func: setIsLoggedIn}} user={{var: username, func: setUsername}}/>} />
+          <Route path="/calorieLog" render={(props)=> <CalorieLog {...props} user={{var:username, func: setUsername}} /> } />
           <Route path="/about" component={About} />
           <Route path="/createAccount" component={CreateAccount} />
         </Switch>

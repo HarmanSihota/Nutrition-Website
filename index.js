@@ -6,7 +6,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const path = require("path");
-var mysql = require("mysql");
+const mysql = require("mysql");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -81,10 +81,17 @@ app.post("/register", checkUserDoesNotExist, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    pool.query("INSERT INTO users (username, password) VALUES(?,?)", [req.body.username, hashedPassword], function(error, results, fields) {
+    pool.query("INSERT INTO users (username, password, email) VALUES(?,?,?)", [req.body.username, hashedPassword, req.body.email], function(error, results, fields) {
       if(error) throw error;
       console.log(results);
       res.status(201).send("User created");
+    });
+
+    pool.query(`CREATE TABLE ${req.body.username}_nutrition_log( entry_id INT AUTO_INCREMENT, entry_name VARCHAR(100), 
+              entry_date DATETIME, entry_calories INT, PRIMARY KEY(entry_id));`, function(error, results, fields) {
+      
+      if(error) throw error;
+      console.log(results);
     });
 
   } catch(error) {
@@ -94,7 +101,16 @@ app.post("/register", checkUserDoesNotExist, async (req, res) => {
 });
 
 app.post("/mealEntry", (req, res) => {
-  //insert meal entry info into users row in database
+  pool.query(`INSERT INTO ${req.body.username}_nutrition_log (entry_name, entry_date, entry_calories) VALUES(?,?,?)`, 
+            [req.body.entry_name, req.body.entry_date, req.body.entry_calories], function(error, results, fields) {
+    
+    if(error) throw error;
+    res.status(201).send("success");
+  });
+})
+
+app.post("/mealHistory", getMealHistory, (req, res) => {
+  return res.status(200).json(currUser.mealHistory);
 })
 
 
@@ -127,53 +143,11 @@ function checkUserExists(req, res, next) {
   });
 }
 
-
-// function checkAuthenticated(req, res, next) {
-//   // if(req.body){
-//   //   if(req.body.path === "/login") {
-//   //     console.log("on login");
-//   //     const authHeader = req.headers.cookie;
-//   //     const token = authHeader && authHeader.split(' ')[1];
-//   //     if(token == null) return next();
-    
-//   //     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//   //       if(err) return next();
-//   //       req.user = user;
-//   //       return res.redirect("/");
-//   //     });
-//   //   }
-//   // }
-
-//   if(req.path !== "/login"){
-//     console.log("not on login");
-
-//     const authHeader = req.headers.cookie;
-//     const token = authHeader && authHeader.split(' ')[1];
-//     if(token == null) {
-//       console.log("no token");
-//       return res.redirect(301, "/login");
-//     }
-
-//     console.log("token is present");
-
-//     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//       if(err) return res.redirect(301, "/login");
-//       req.user = user;
-//       console.log("made it all the way");
-//       return next();
-//     });
-//   } else {
-//     next();
-//   }
-//  }
-
-// function checkNotAuthenticated(req, res, next) {
-//     const authHeader = req.headers.cookie;
-//     const token = authHeader && authHeader.split(' ')[1];
-//     if(token == null) return next();
-
-//     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//       if(err) return next();
-//       return res.redirect("/")
-//     });
-// }
+async function getMealHistory(req, res, next){
+  pool.query(`SELECT entry_name, entry_date, entry_calories from ${currUser.username}_nutrition_log LIMIT 10`, function(error, results, fields) {
+    if(error) throw error;
+    console.log(results);
+    currUser.mealHistory = results;
+    next();
+  });
+}

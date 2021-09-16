@@ -8,7 +8,7 @@ function About() {
 
   async function checkToken() {
     let response = await axios.post("/checkAuth", {
-      token: localStorage.getItem("jwtToken")
+      token: sessionStorage.getItem("jwtToken")
     });
 
     if(response.data !== "success") setRedirect("/login");
