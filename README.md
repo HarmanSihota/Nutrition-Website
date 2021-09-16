@@ -9,4 +9,4 @@ This is a website created to help users track their calories and other dietary i
 - Node.js 14.17.4
 - Express 4.17.1
 - MySql 2.18.1
-- axios 0.21.1 
+- Axios 0.21.1 
