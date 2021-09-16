@@ -11,32 +11,11 @@ const mysql = require("mysql");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// var connection = mysql.createConnection({
-//    user     : "nutrition_app",
-//    password : "password",
-//    database: "nutrition_app_users"
-// });
- 
-// connection.connect(function(err) {
-//   if (err) {
-//     console.error('error connecting: ' + err.stack);
-//     return;
-//   }
- 
-//   console.log('connected as id ' + connection.threadId);
-// });
-
 const pool = mysql.createPool({
   user     : "nutrition_app",
   password : "password",
   database: "nutrition_app_users"
 });
-
-// pool.query("SELECT a, b, c FROM test WHERE b=2", function (error, results, fields) {
-//   if (error) throw error;
-//   console.log("The results are: ", results[0]);
-// });
-
 
 let users = [];
 let currUser;
@@ -144,7 +123,7 @@ function checkUserExists(req, res, next) {
 }
 
 async function getMealHistory(req, res, next){
-  pool.query(`SELECT entry_name, entry_date, entry_calories from ${currUser.username}_nutrition_log LIMIT 10`, function(error, results, fields) {
+  pool.query(`SELECT entry_name, entry_date, entry_calories from ${currUser.username}_nutrition_log ORDER BY entry_date DESC LIMIT 10`, function(error, results, fields) {
     if(error) throw error;
     console.log(results);
     currUser.mealHistory = results;

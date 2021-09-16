@@ -29,6 +29,19 @@ function CalorieLog(props) {
     return `${date[0]}-${date[1]}-${date[2]} ${date[3]}:${date[4]}:${date[5]}`;
   }
 
+  function formatDate(arr) {
+    let result = {};
+    for(let i = 0; i < arr.length; i++){
+      let newDate = new Date(arr[i].entry_date);
+      console.log(newDate);
+      result.time = newDate.toLocaleTimeString("en-us", {hour: "2-digit", minute: "2-digit"});
+      result.day = newDate.getDate();
+      result.month = newDate.toLocaleDateString("en-us", {month: "long"});
+      result.year = newDate.getFullYear();
+      arr[i].entry_date = `${result.month} ${result.day} ${result.year} ${result.time}`;
+    }
+  }
+
   function createTable() {
     let rows = [];
     for(let i = 0; i < mealHistory.length; i++){
@@ -95,8 +108,9 @@ function CalorieLog(props) {
       let response = await axios.post("/mealHistory", {
         username: props.user.var
       });
+
+      formatDate(response.data);
       setMealHistory(response.data);
-      console.log(response.data);
     } catch(error) {
       throw error;
     }
