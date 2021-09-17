@@ -6,9 +6,10 @@ import "./CalorieLog.css";
 function CalorieLog(props) {
   const [ redirect, setRedirect ] = useState(null);
   const [ mealName, setMealName ] = useState("");
-  const [ calorieEntry, setCalorieEntry] = useState("");
+  const [ calorieEntry, setCalorieEntry] = useState(0);
   const [ refresh, setRefresh ] = useState(null);
   const [ mealHistory, setMealHistory ] = useState([]);
+  const [ errMsg, setErrMsg ] = useState("");
 
   function getDate() {
     let d = new Date(Date.now());
@@ -76,6 +77,12 @@ function CalorieLog(props) {
 
   async function handleSubmit() {
     try {
+      if(calorieEntry === "" || mealName === "") {
+        setErrMsg("Invalid entry, please try again");
+        return;
+      }
+      setErrMsg("");
+
       await axios.post("/mealEntry", {
         username: props.user.var,
         entry_name: mealName,
@@ -152,7 +159,7 @@ function CalorieLog(props) {
               <input 
                 id="calorieEntry"
                 placeholder="Enter calories here"
-                type="text"
+                type="number"
                 name="calorieEntry"
                 className="formInput"
                 value={calorieEntry}
@@ -164,6 +171,7 @@ function CalorieLog(props) {
           </form>
 
           <button type="submit" className="formButton" id="mealButton" onClick={handleSubmit}>Submit</button>
+          <p className="errorMsg" id="errorMsg_CL">{errMsg}</p>
         </div>
         <div id="resultsPanel">
           <h1 id="mealHistoryMsg">Meal History</h1>

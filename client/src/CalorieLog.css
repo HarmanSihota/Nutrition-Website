@@ -15,7 +15,8 @@
   margin: 0;
 }
 
-#resultsPanel {
+#errorMsg_CL {
+  margin-top: 100px;
 }
 
 #mealName {
