@@ -13,7 +13,7 @@ This is a website created to help users track their calories and other dietary i
 
 ## Features
 
-![Home Page](https://github.com/HarmanSihota/Nutrition-Website/blob/client/public/Home.png?raw=true)
+![Home Page](https://github.com/HarmanSihota/Nutrition-Website/blob/main/client/public/Home.png)
 
 1. There is a user registration and login system to allow users to have a personalized experience. 
 
