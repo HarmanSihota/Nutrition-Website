@@ -23,21 +23,21 @@
 #mealName {
   position: relative;
   width: 250px;
-  top: 80px;
+  top: 55px;
   left: 265px;
 }
 
 #calorieEntry {
   position: relative;
   width: 250px;
-  top: 80px;
+  top: 55px;
   left: 265px;
 }
 
 #mealButton {
   position: relative;
   width: 250px;
-  top: 80px;
+  top: 55px;
   left: 265px;
   margin-left: 0;
 }
