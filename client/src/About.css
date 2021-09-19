@@ -1,8 +1,8 @@
 .mainBox {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 125px;
   margin-bottom: 50px;
-  height: 450px;
+  height: 400px;
   width: 900px;
   background-color: white;
   box-shadow: 3px 3px 10px 3px #111;
@@ -11,4 +11,11 @@
 #aboutHeading {
   text-align: center;
   font-size: 45px;
+}
+
+.aboutMsg {
+  font-size: large;
+  text-align: left;
+  margin-left: 12px;
+  margin-right: 12px;
 }

@@ -39,6 +39,8 @@ function Navbar(props) {
     <nav>
       <ul>
 
+        <li id="title">Nutrition Tracker</li>
+
         <Link to="/">
           <li>Home</li>
         </Link>

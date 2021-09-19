@@ -29,7 +29,6 @@ app.use(express.urlencoded({
 app.post("/checkAuth", (req, res) =>{
   const authToken = req.body.token;
   if(authToken == null) { 
-    console.log("null token");
     return res.send("no token");
   }
 
@@ -43,12 +42,10 @@ app.post("/checkAuth", (req, res) =>{
 app.post("/login", checkUserExists, async (req, res) => {
   try {
     if(!await bcrypt.compare(req.body.password, currUser.password)) {
-       console.log("incorrect password");
        res.send("incorrect password");
     }
     else {
       const accessToken = jwt.sign(currUser, process.env.ACCESS_TOKEN_SECRET);
-      console.log("log in success");
       res.json({accessToken: accessToken});
     }
   } catch(error) {
@@ -62,7 +59,6 @@ app.post("/register", checkUserDoesNotExist, async (req, res) => {
 
     pool.query("INSERT INTO users (username, password, email) VALUES(?,?,?)", [req.body.username, hashedPassword, req.body.email], function(error, results, fields) {
       if(error) throw error;
-      console.log(results);
       res.status(201).send("User created");
     });
 
@@ -70,11 +66,9 @@ app.post("/register", checkUserDoesNotExist, async (req, res) => {
               entry_date DATETIME, entry_calories INT, PRIMARY KEY(entry_id));`, function(error, results, fields) {
       
       if(error) throw error;
-      console.log(results);
     });
 
   } catch(error) {
-      console.log(error);
       res.status(500).end();
     }
 });
@@ -125,7 +119,6 @@ function checkUserExists(req, res, next) {
 async function getMealHistory(req, res, next){
   pool.query(`SELECT entry_name, entry_date, entry_calories from ${currUser.username}_nutrition_log ORDER BY entry_date DESC LIMIT 10`, function(error, results, fields) {
     if(error) throw error;
-    console.log(results);
     currUser.mealHistory = results;
     next();
   });

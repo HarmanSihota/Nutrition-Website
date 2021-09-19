@@ -6,7 +6,6 @@ import Login from "./Login";
 import About from "./About";
 import CalorieLog from "./CalorieLog"
 import CreateAccount from "./CreateAccount"
-import Footer from "./Footer"
 import "./App.css";
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/createAccount" component={CreateAccount} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

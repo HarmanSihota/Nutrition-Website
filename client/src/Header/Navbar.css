@@ -1,5 +1,14 @@
+#title {
+  font-size: 30px;
+  line-height: normal;
+}
+
+#title:hover {
+  background-color: inherit;
+}
+
 /*
- * from https://www.w3schools.com/css/css_navbar_horizontal.asp
+ * navbar styling  below is from https://www.w3schools.com/css/css_navbar_horizontal.asp
  */
 
 nav ul {
@@ -17,6 +26,7 @@ nav li {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  line-height: 2.4;
 }
 
 nav li:hover {
