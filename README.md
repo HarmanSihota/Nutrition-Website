@@ -1,7 +1,9 @@
 # Nutrition-Website
 
 ## Overview 
-This is a website created to help users track their calories and other dietary information in order to improve their health. This project is still currently __in progress__.
+This is a website created to help users track their calories in order to improve their health.
+
+![Home Page](https://github.com/HarmanSihota/Nutrition-Website/blob/main/client/public/Home.png)
 
 ## Technologies
 
@@ -12,8 +14,6 @@ This is a website created to help users track their calories and other dietary i
 - Axios 0.21.1 
 
 ## Features
-
-![Home Page](https://github.com/HarmanSihota/Nutrition-Website/blob/main/client/public/Home.png)
 
 1. There is a user registration and login system to allow users to have a personalized experience. 
 
