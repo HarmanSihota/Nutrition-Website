@@ -17,8 +17,8 @@ This is a website created to help users track their calories and other dietary i
 
 1. There is a user registration and login system to allow users to have a personalized experience. 
 
-![Login Menu](https://github.com/HarmanSihota/Nutrition-Website/blob/client/public/Login.png)
+![Login Menu](https://github.com/HarmanSihota/Nutrition-Website/blob/main/client/public/Login.png)
 
 2. You can enter your meals and their calories and view your recent submissions to keep track of your eating habits.
 
-![Meal Entry](https://github.com/HarmanSihota/Nutrition-Website/blob/client/public/CalorieLog.png)
+![Meal Entry](https://github.com/HarmanSihota/Nutrition-Website/blob/main/client/public/CalorieLog.png)
